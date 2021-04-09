@@ -1,0 +1,26 @@
+{
+  "name": "Quickbooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --watchAll --no-cache"
+  },
+  "jest": {
+    "testSequencer": "./test/test_sequencer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "moment-timezone": "^0.5.33",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "faker": "^5.5.2",
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
+  }
+}
