@@ -58,9 +58,12 @@ class Quickbooks {
     makeRequest = makeRequest.bind(this)
 }
 
-module.exports = options => {
+module.exports = {
+  getInstance(options) {
     if (!instance) {
+      // only the first call to getInstance will use these options to create an instance
       instance = new Quickbooks(options);
     } 
     return instance;
   }
+}
