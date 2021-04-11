@@ -1,6 +1,6 @@
 {
   "name": "@flashsparkmedia/quickbooks",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Quickbooks API Library",
   "main": "Quickbooks.js",
   "scripts": {
