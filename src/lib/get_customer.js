@@ -12,9 +12,14 @@ async function getCustomer(query) {
         })
     return response.QueryResponse.Customer
     } catch (e) {
-        const errorsArray = e.response.data.Fault.Error
-        const errors = errorsArray.map(error => error.Message).join(' ')
-        throw new Error(errors)
+        if (e.response) {
+            const errorsArray = e.response.data.Fault.Error
+            const errors = errorsArray.map(error => error.Message).join(' ')
+            throw new Error(errors)
+        } else {
+            throw new Error(e)
+        }
+        
     }
 }
 
