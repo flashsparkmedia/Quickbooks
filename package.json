@@ -2,7 +2,7 @@
   "name": "@flashsparkmedia/quickbooks",
   "version": "1.0.2",
   "description": "Quickbooks API Library",
-  "main": "./src/Quickbooks.js",
+  "main": "Quickbooks.js",
   "scripts": {
     "test": "jest --watchAll --no-cache"
   },
