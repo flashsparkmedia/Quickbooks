@@ -10,7 +10,7 @@ async function getCustomer(query) {
             url: `${this.BASE_URL_WEB}/v3/company/${this.realm_id}/query?query=${query}&minorversion=57`,
             method: 'GET'
         })
-    return response.QueryResponse.Customer
+        return response.QueryResponse.Customer
     } catch (e) {
         const errorsArray = e.Fault.Error
         const errors = errorsArray.map(error => error.Message).join(' ')

@@ -2,26 +2,50 @@ const qb = require('../app')
 
 
 it('retrieves all cards associated with a customer', async () => {
-    // let access_token
+    const familyName = faker.name.lastName()
+    const givenName = faker.name.firstName()
+    const displayName = `${givenName} ${familyName}`
 
-    // try {
-    //     access_token = await qb.getAccessToken()
-    // } catch (e) {
-    //    return console.log(e)
-    // }
+    const customer = await qb.createCustomer({
+        displayName,
+        familyName,
+        givenName,
+        email: faker.internet.email()
+    })
+    
+    await qb.createCard({
+        number: faker.finance.creditCardNumber(),
+        expMonth: '03',
+        expYear: '2030',
+        ccv: faker.finance.creditCardCVV(),
+        name: displayName,
+        default: true,
+        customerId: customer.Id
+    })
 
-    // const options = {
-    //     customerId: 1,
-    //     number: '4000056655665556',
-    //     expMonth: '01',
-    //     expYear: '2022',
-    //     CVV: '123',
-    //     name: faker.name.findName(),
-    //     default: true
-    // }
+    await qb.createCard({
+        number: faker.finance.creditCardNumber(),
+        expMonth: '03',
+        expYear: '2030',
+        ccv: faker.finance.creditCardCVV(),
+        name: displayName,
+        default: true,
+        customerId: customer.Id
+    })
 
-    // const card = await qb.createCard(options)
-    // expect(card).toBeDefined()
+    await qb.createCard({
+        number: faker.finance.creditCardNumber(),
+        expMonth: '03',
+        expYear: '2030',
+        ccv: faker.finance.creditCardCVV(),
+        name: displayName,
+        default: true,
+        customerId: customer.Id
+    })
 
-    return
+    const cards = await qb.getCards({
+        customerId: customer.Id
+    })
+
+    expect(Array.isArray(cards)).toBe(true)
 })
