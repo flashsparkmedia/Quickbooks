@@ -21,10 +21,9 @@ async function make_request(request) {
             console.log(response)
             resolve(reponse)
         } catch (e) {
-            // if (e.response && e.response.data)
-            //     reject(e.response.data)
-            // else reject(e)
-            reject(e)
+            if (e.response && e.response.data)
+                reject(e.response.data)
+            else reject(e)
         }
     })
 }
