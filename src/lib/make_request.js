@@ -19,11 +19,12 @@ async function make_request(request) {
         try {
             const response = await axios(request)
             console.log(response)
-            resolve()
+            resolve(reponse)
         } catch (e) {
-            if (e.response && e.response.data)
-                reject(e.response.data)
-            else reject(e)
+            // if (e.response && e.response.data)
+            //     reject(e.response.data)
+            // else reject(e)
+            reject(e)
         }
     })
 }

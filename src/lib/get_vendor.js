@@ -13,7 +13,7 @@ async function getVendor(query) {
 
     return response.QueryResponse.Vendor
     } catch (e) {
-        const errorsArray = e.response.data.Fault.Error
+        const errorsArray = e.Fault.Error
         const errors = errorsArray.map(error => error.Message).join(' ')
         throw new Error(errors)
     }
