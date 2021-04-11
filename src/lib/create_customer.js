@@ -18,9 +18,13 @@ async function createCustomer(options) {
         })
         return response.Customer
     } catch(e) {
-        const errorsArray = e.Fault.Error
-        const errors = errorsArray.map(error => error.Message).join(' ')
-        throw new Error(errors)
+        if (e && e.Fault) {
+            const errorsArray = e.Fault.Error
+            const errors = errorsArray.map(error => error.Message).join(' ')
+            throw new Error(errors)
+        } else {
+            throw new Error(e)
+        }
     }
 }
 
