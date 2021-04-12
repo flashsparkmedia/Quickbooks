@@ -12,9 +12,13 @@ function getCustomer(query) {
             })
             resolve(response.QueryResponse.Customer)
         } catch (e) {
-            const errorsArray = e.Fault.Error
-            const errors = errorsArray.map(error => error.Message).join(' ')
-            reject(errors)
+            if (e.Fault) {
+                const errorsArray = e.Fault.Error
+                const errors = errorsArray.map(error => error.Message).join(' ')
+                reject(errors)
+            } else {
+                reject(e)
+            }
         }
     })
 }
