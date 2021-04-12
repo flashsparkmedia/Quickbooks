@@ -19,8 +19,8 @@
 
 // module.exports = createAccount
 
-async function createAccount(options) {
-    return new Promise((resolve, reject) => {
+function createAccount(options) {
+    return new Promise(async (resolve, reject) => {
 
         if (!options) {
             reject('createAccount options not provided.')

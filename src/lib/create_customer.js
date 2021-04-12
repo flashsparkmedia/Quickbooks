@@ -28,8 +28,8 @@
 //     }
 // }
 
-async function createCustomer(options) {
-    return new Promise((resolve, reject) => {
+function createCustomer(options) {
+    return new Promise(async (resolve, reject) => {
         if (!options) {
             reject('createCustomer options not provided.')
         }

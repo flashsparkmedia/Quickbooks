@@ -26,8 +26,8 @@
 //     }
 // }
 
-async function createVendor(options) {
-    return new Promise((resolve, reject) => {
+function createVendor(options) {
+    return new Promise(async (resolve, reject) => {
         if (!options) {
            reject('createVendor options not provided.')
         }
