@@ -18,7 +18,6 @@ async function make_request(request) {
         
         try {
             const response = await axios(request)
-            console.log(reponse)
             resolve(response.data)
         } catch (e) {
             console.log(e)
