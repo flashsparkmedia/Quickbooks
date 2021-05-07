@@ -28,11 +28,21 @@ class Quickbooks {
         this.client_secret = options.client_secret
         this.refresh_token = options.refresh_token
         this.realm_id = options.realm_id
+        this.accessToken = null
        
         this.PROD = Boolean(options.prod)
         this.BASE_URL_WEB = this.PROD ? 'https://quickbooks.api.intuit.com' : 'https://sandbox-quickbooks.api.intuit.com'
         this.BASE_URL_PAYMENTS = this.PROD ? 'https://api.intuit.com' : 'https://sandbox.api.intuit.com'
         this.OAUTH_API_URL = 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer'
+
+        this.init()
+    }
+
+    init = async () => {
+      this.accessToken = await this.getAccessToken()
+      setInterval(() => {
+        this.accessToken = await this.getAccessToken()
+      }, 30 * 1000 * 1000)
     }
 
     getAccessToken = getAccessToken.bind(this)

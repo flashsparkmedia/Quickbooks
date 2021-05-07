@@ -12,7 +12,7 @@ async function make_request(request) {
         request.headers = {
             'Content-Type' : 'application/json',
             'Accept': 'application/json',
-            'Authorization': 'Bearer ' + await this.getAccessToken(),
+            'Authorization': 'Bearer ' + await this.accessToken,
             ...request.headers,
         }
         
