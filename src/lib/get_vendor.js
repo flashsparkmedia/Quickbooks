@@ -17,10 +17,12 @@ function getVendor(query) {
         
         } catch (e) {
             if (e.Fault) {
+                console.log(e.Fault)
                 const errorsArray = e.Fault.Error
                 const errors = errorsArray.map(error => error.Message).join(' ')
                 reject(errors)
             } else {
+                console.log(e)
                 reject(e)
             }
         }
