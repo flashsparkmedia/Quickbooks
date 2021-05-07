@@ -1,7 +1,7 @@
-function createCustomer(options) {
+function createCustomer(user) {
     return new Promise(async (resolve, reject) => {
-        if (!options) {
-            reject('createCustomer options not provided.')
+        if (!user) {
+            reject('createCustomer user not provided.')
         }
 
         try {
@@ -9,11 +9,11 @@ function createCustomer(options) {
                 url: `${this.BASE_URL_WEB}/v3/company/${this.realm_id}/customer?minorversion=57`,
                 method: 'POST',
                 data: {
-                    DisplayName: options.displayName,
-                    FamilyName: options.familyName,
-                    GivenName: options.givenName,
+                    DisplayName: user.displayName,
+                    FamilyName: user.familyName,
+                    GivenName: user.givenName,
                     PrimaryEmailAddr: {
-                        Address: options.email
+                        Address: user.email
                     }
                 }
             })
