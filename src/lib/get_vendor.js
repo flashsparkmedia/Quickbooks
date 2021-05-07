@@ -1,5 +1,8 @@
 
 function getVendor(query) {
+    console.log('running')
+    console.log(query)
+
     return new Promise(async (resolve, reject) => {
         if (!query) {
             reject('getVendor select statement not provided')
