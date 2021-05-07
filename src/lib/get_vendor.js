@@ -14,18 +14,18 @@ function getVendor(query) {
                 method: 'GET'
             })
 
-        console.log(response)
-    
-        resolve(response.QueryResponse.Vendor)
+            console.log(response)
+        
+            resolve(response.QueryResponse.Vendor)
         
         } catch (e) {
             if (e.Fault) {
-                console.log(e.Fault)
                 const errorsArray = e.Fault.Error
                 const errors = errorsArray.map(error => error.Message).join(' ')
+                console.log(errors)
                 reject(errors)
             } else {
-                console.log(e)
+                console.log(e.message)
                 reject(e)
             }
         }
