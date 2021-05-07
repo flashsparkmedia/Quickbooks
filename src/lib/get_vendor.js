@@ -10,6 +10,8 @@ function getVendor(query) {
                 url: `${this.BASE_URL_WEB}/v3/company/${this.realm_id}/query?query=${query}&minorversion=57`,
                 method: 'GET'
             })
+
+        console.log(response)
     
         resolve(response.QueryResponse.Vendor)
         
