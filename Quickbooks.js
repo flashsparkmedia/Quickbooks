@@ -35,10 +35,14 @@ class Quickbooks {
         this.BASE_URL_PAYMENTS = this.PROD ? 'https://api.intuit.com' : 'https://sandbox.api.intuit.com'
         this.OAUTH_API_URL = 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer'
 
-        (async () => {
-          this.accessToken = await this.getAccessToken()
-          setInterval(this.getAccessToken, 30 * 1000 * 1000)
-        })()
+        this.init()
+    }
+
+    init = async () => {
+      this.accessToken = await this.getAccessToken()
+      setInterval(async () => {
+        this.getAccessToken()
+      }, 30 * 1000 * 1000)
     }
 
     getAccessToken = getAccessToken.bind(this)
