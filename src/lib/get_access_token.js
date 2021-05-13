@@ -26,6 +26,10 @@ function getAccessToken() {
         try {
             const response = await axios.post(this.OAUTH_API_URL, params, config)
             this.accessToken = response.data.access_token
+            if (response.data.refreshToken) {
+                console.log('New Quickbooks refresh token provided')
+                this.refresh_token = response.data.refreshToken
+            }
             resolve(response.data.access_token)
         } catch (e) {
             reject(e.response.data.error)
