@@ -40,7 +40,7 @@ class Quickbooks {
 
     init = async () => {
       this.accessToken = await this.getAccessToken()
-      setInterval(this.getAccessToken, 30 * 60 * 1000)
+      setInterval(this.getAccessToken, 1800000)
     }
 
     getAccessToken = getAccessToken.bind(this)

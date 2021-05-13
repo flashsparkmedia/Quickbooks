@@ -25,6 +25,7 @@ function getAccessToken() {
 
         try {
             const response = await axios.post(this.OAUTH_API_URL, params, config)
+            this.accessToken = response.data.access_token
             resolve(response.data.access_token)
         } catch (e) {
             reject(e.response.data.error)
