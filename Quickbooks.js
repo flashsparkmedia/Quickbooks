@@ -31,9 +31,9 @@ class Quickbooks {
         this.accessToken = null
        
         this.PROD = Boolean(options.prod)
-        this.BASE_URL_WEB = this.PROD ? 'https://quickbooks.api.intuit.com' : 'https://sandbox-quickbooks.api.intuit.com'
-        this.BASE_URL_PAYMENTS = this.PROD ? 'https://api.intuit.com' : 'https://sandbox.api.intuit.com'
-        this.OAUTH_API_URL = 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer'
+        this.BASE_URL_WEB = this.PROD ? 'https://quickbooks.api.intuit.com' : 'https://sandbox-quickbooks.api.intuit.com';
+        this.BASE_URL_PAYMENTS = this.PROD ? 'https://api.intuit.com' : 'https://sandbox.api.intuit.com';
+        this.OAUTH_API_URL = 'https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer';
 
         this.init()
     }
